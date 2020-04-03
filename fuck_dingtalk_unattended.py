@@ -44,12 +44,12 @@ else:
 courseTime = 700
 learnTime = 600
 # 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了
-dd_sid = 'k0_872c0b15bf41875e2c72_0b15872c5e8741bf3e4e3508b59ada3cfb46c663683a'
-isg = 'BPHx4BiMCwc-wKf89I7_IWCsAH2L3mVQDWaIdtMHJLjX-hRMGy8CIo7cGIycMv2I'
+dd_sid = 'k0_3be60b5a6a43875eb719_0b5a3be65e87436a0e30cd97b0bbd34c4ab2686621dd'
+isg = 'BGlpGNDkEx90tC9EzDb3ydiEeBXDNl1oxR4A7gtchdCP0o_kU4cQOaIEkHRkyvWg'
 # 这五个也代表你是谁,只有第一次使用要修改,不要把引号删了
-dt_s = 'u-1c4b69-713b146399-b5f548f-8c59a6-3a8356d9-10a8d683-9287-4681-b3d3-188e429b277b'
+dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'
-XSRF_TOKEN = '4a918264-173f-4049-baf7-1f5c2a58504b'
+XSRF_TOKEN = '4433e438-3a80-44ca-a6cd-df3b52c41c5d'
 ulcookie = 'fa04cdb0c4c182f55466f6a70fe96ad3'
 sign = 'fb52241a82dd242ef97ecc621e3fb195'
 # 用户更改区域结束

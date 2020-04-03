@@ -1,1 +1,2 @@
 # skvddt
+pip install requests

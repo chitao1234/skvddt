@@ -138,6 +138,7 @@ if LazyMode:
         foo()
         print("Processed", VideoInfo, j + 2, "in", len(VideoInfos))
         print()
+        j = j + 1
 else:
     # 没开懒人模式
     Data = {

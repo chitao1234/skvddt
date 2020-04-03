@@ -1,4 +1,4 @@
-# VER 1.3
+# VER 1.3HOTFIX
 import requests
 import json
 from time import sleep
@@ -59,9 +59,9 @@ VideoInfos = [
     {"source": 3, "studyType": 2, "resourceId": "102406149", "packageId": "102973230", "courseId": "102486938",
      "courseTime": 0, "learnTime": 0, "type": 1}
 ]
-# Time是次数,因为我这个代码每次刷增加5%,所以加了自动多刷几次的次数,默认值:27
+# Time是次数,因为我这个代码每次刷增加5%,所以加了自动多刷几次的次数,默认值:25
 # 可刷时间,每次+1分钟,20次+20分钟
-Times = 10
+Times = 25
 # 这个是你在两次刷时间操作之间,停顿的秒数,建议不动,不然可能会被临时停止访问钉钉,默认值:4
 SleepSecond = 4
 # 下面三个在你换视频的时候要改,str()不要删,不要多加引号
@@ -119,7 +119,7 @@ Headers = {
 }
 if LazyMode:
     # 开了懒人模式
-    i = 0
+    j = 0
     for VideoInfo in VideoInfos:
         resourceId = VideoInfo['resourceId']
         packageId = VideoInfo['packageId']
@@ -134,11 +134,12 @@ if LazyMode:
             "learnTime": learnTime,
             "type": 2
         }
-        print("Now Processing:", VideoInfo, i, "in", len(VideoInfos))
+        print("Now Processing:", VideoInfo, j + 1, "in", len(VideoInfos))
         foo()
-        print("Processed", VideoInfo, i + 1, "in", len(VideoInfos))
+        print("Processed", VideoInfo, j + 2, "in", len(VideoInfos))
         print()
 else:
+    # 没开懒人模式
     Data = {
         "source": 3,
         "studyType": 2,

@@ -43,15 +43,16 @@ else:
 # 这两个暂时别动,是每次刷的时间相关的,还没搞清楚
 courseTime = 700
 learnTime = 600
-# 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了
-dd_sid = 'k0_1cc70ab1d787865ec84c_0ab11cc75e8687d753643b8b59ec567d4ec4d24784fd'
-isg = 'BMvLAQ1QERTORU0umsA183aKWm-1YN_iW0AihD3JPYpqXOi-xTH5MGs6Ml6y_Dfa'
-# 这五个也代表你是谁,只有第一次使用要修改,不要把引号删了
+# 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
+dd_sid = 'k0_872c0b15bf41875e2c72_0b15872c5e8741bf3e4e3508b59ada3cfb46c663683a'
+isg = 'BPHx4BiMCwc-wKf89I7_IWCsAH2L3mVQDWaIdtMHJLjX-hRMGy8CIo7cGIycMv2I'
+# 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
+ulcookie = '3283e9c00a8a93ddb868591fb5640c4f'
+sign = '419ce33a6dcd56fbed709d1cf7894c24'
+# 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-713b146399-b5f548f-8c59a6-3a8356d9-10a8d683-9287-4681-b3d3-188e429b277b'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'
 XSRF_TOKEN = '4a918264-173f-4049-baf7-1f5c2a58504b'
-ulcookie = 'fa04cdb0c4c182f55466f6a70fe96ad3'
-sign = 'fb52241a82dd242ef97ecc621e3fb195'
 # 用户更改区域结束
 
 

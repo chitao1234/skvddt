@@ -1,30 +1,79 @@
-# VER 1.2
+# VER 1.3
 import requests
 import json
 from time import sleep
 
 
+# 主要逻辑开始
+def foo():
+    for i in range(Times):
+        flag_fail = False
+        response = requests.post(url=Url, data=json.dumps(Data), headers=Headers)
+        # Debug info start.到Debug info stop.输出的是调试数据,可忽略
+        print()
+        print("Debug info start.")
+        print(response.text)
+        print("Debug info stop.")
+        print()
+        print("Time:", i + 1)
+        response_formatted = eval(
+            response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
+        if response_formatted.get('rgv587_flag') == "sm":
+            # 若显示这个,请把SleepSecond调大,建议调回默认值
+            # 同时在多设备运行也有可能出现此问题
+            print("Failed: DoS Protection.")
+            flag_fail = True
+        if response_formatted.get('success') == 0:
+            print("Failed: General Fail:", response_formatted['desc'])
+            flag_fail = True
+        if response_formatted.get('data') == 0:
+            print("Failed: Video Not Found.")
+            flag_fail = True
+        if response.status_code == 200 and not flag_fail:
+            print("Success.")
+        else:
+            print("Failed:", response.status_code)
+            exit(-1)
+        sleep(SleepSecond)
+# 主要逻辑结束
+
+
 # 用户更改区域开始
 # 懒人模式,把json粘贴过来,自动解析视频ID,True是开,False是关
 LazyMode = True
-VideoInfo = \
-    {"source":3,"studyType":2,"resourceId":"103759207","packageId":"102552273","courseId":"102290013","courseTime":0,"learnTime":0,"type":1}
-# Time是次数,因为我这个代码每次刷增加5%,所以加了自动多刷几次的次数,默认值:20
+VideoInfos = [
+    {"source": 3, "studyType": 2, "resourceId": "103592832", "packageId": "102318342", "courseId": "102579256",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "103325538", "packageId": "102318342", "courseId": "102893143",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "103079865", "packageId": "102318342", "courseId": "102019165",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "103476086", "packageId": "102973230", "courseId": "101921005",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "103922022", "packageId": "102973230", "courseId": "102051033",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "103392161", "packageId": "102973230", "courseId": "102345080",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "103476087", "packageId": "102973230", "courseId": "101921006",
+     "courseTime": 0, "learnTime": 0, "type": 1},
+    {"source": 3, "studyType": 2, "resourceId": "102406149", "packageId": "102973230", "courseId": "102486938",
+     "courseTime": 0, "learnTime": 0, "type": 1}
+]
+# Time是次数,因为我这个代码每次刷增加5%,所以加了自动多刷几次的次数,默认值:27
 # 可刷时间,每次+1分钟,20次+20分钟
-Times = 10000
+Times = 10
 # 这个是你在两次刷时间操作之间,停顿的秒数,建议不动,不然可能会被临时停止访问钉钉,默认值:4
 SleepSecond = 4
 # 下面三个在你换视频的时候要改,str()不要删,不要多加引号
-if LazyMode:
-    # 开了懒人模式
-    resourceId = VideoInfo['resourceId']
-    packageId = VideoInfo['packageId']
-    courseId = VideoInfo['courseId']
-else:
+if not LazyMode:
     # 没开懒人模式
     resourceId = str(103582425)
     packageId = str(102649199)
     courseId = str(102197105)
+else:
+    resourceId = ''
+    packageId = ''
+    courseId = ''
 # 这两个暂时别动,是每次刷的时间相关的,还没搞清楚,不要多加引号
 courseTime = 700
 learnTime = 600
@@ -36,16 +85,6 @@ isg = 'BMvLAQ1QERTORU0umsA183aKWm-1YN_iW0AihD3JPYpqXOi-xTH5MGs6Ml6y_Dfa'
 # 用户更改区域结束
 
 Url = "https://saas.daxue.dingtalk.com/dingtalk/course/record.jhtml"
-Data = {
-    "source": 3,
-    "studyType": 2,
-    "resourceId": resourceId,
-    "packageId": packageId,
-    "courseId": courseId,
-    "courseTime": courseTime,
-    "learnTime": learnTime,
-    "type": 2
-}
 Cookies = {
     'dt_s': 'u-1c4b69-713b146399-b5f548f-8c59a6-3a8356d9-10a8d683-9287-4681-b3d3-188e429b277b',
     'up_ab': 'y',
@@ -78,26 +117,37 @@ Headers = {
     'Accept-Language': 'zh-CN,zh;q=0.9',
     'Cookie': CookiesFormatted
 }
-for i in range(Times):
-    Response = requests.post(url=Url, data=json.dumps(Data), headers=Headers)
-    # Debug info start.到Debug info stop.输出的是调试数据,可忽略
-    print()
-    print("Debug info start.")
-    print(Response.text)
-    print("Debug info stop.")
-    print()
-    print("Time:", i + 1)
-    ResponseFormatted = eval(Response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
-    if ResponseFormatted.get('rgv587_flag') == "sm":
-        # 若显示这个,请把SleepSecond调大,建议调回默认值
-        print("Failed: DoS Protection.")
-    if ResponseFormatted.get('success') == 0:
-        print("Failed: General Fail:", ResponseFormatted['desc'])
-    if ResponseFormatted.get('data') == 0:
-        print("Failed: Video Not Found.")
-    if Response.status_code == 200:
-        print("Success.")
-    else:
-        print("Failed:", Response.status_code)
-    sleep(SleepSecond)
+if LazyMode:
+    # 开了懒人模式
+    i = 0
+    for VideoInfo in VideoInfos:
+        resourceId = VideoInfo['resourceId']
+        packageId = VideoInfo['packageId']
+        courseId = VideoInfo['courseId']
+        Data = {
+            "source": 3,
+            "studyType": 2,
+            "resourceId": resourceId,
+            "packageId": packageId,
+            "courseId": courseId,
+            "courseTime": courseTime,
+            "learnTime": learnTime,
+            "type": 2
+        }
+        print("Now Processing:", VideoInfo, i, "in", len(VideoInfos))
+        foo()
+        print("Processed", VideoInfo, i + 1, "in", len(VideoInfos))
+        print()
+else:
+    Data = {
+        "source": 3,
+        "studyType": 2,
+        "resourceId": resourceId,
+        "packageId": packageId,
+        "courseId": courseId,
+        "courseTime": courseTime,
+        "learnTime": learnTime,
+        "type": 2
+    }
+    foo()
 print('Done.')

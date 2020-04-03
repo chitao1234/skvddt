@@ -8,10 +8,11 @@ from time import sleep
 # 懒人模式,把json粘贴过来,自动解析视频ID,True是开,False是关
 LazyMode = True
 VideoInfo = \
-    {"source":3,"studyType":2,"resourceId":"103455343","packageId":"102605219","courseId":"102756065","courseTime":0,"learnTime":0,"type":1}
-# Time是次数,因为我这个代码每次刷增加5%,所以加了自动多刷几次的次数
-Times = 2000
-# 这个是你在两次刷时间操作之间,停顿的秒数,建议不动,不然可能会被临时停止访问钉钉
+    {"source":3,"studyType":2,"resourceId":"103759207","packageId":"102552273","courseId":"102290013","courseTime":0,"learnTime":0,"type":1}
+# Time是次数,因为我这个代码每次刷增加5%,所以加了自动多刷几次的次数,默认值:20
+# 可刷时间,每次+1分钟,20次+20分钟
+Times = 10000
+# 这个是你在两次刷时间操作之间,停顿的秒数,建议不动,不然可能会被临时停止访问钉钉,默认值:4
 SleepSecond = 4
 # 下面三个在你换视频的时候要改,str()不要删,不要多加引号
 if LazyMode:
@@ -87,12 +88,12 @@ for i in range(Times):
     print()
     print("Time:", i + 1)
     ResponseFormatted = eval(Response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
-    if ResponseFormatted['rgv587_flag'] == "sm":
-        # 若显示这个,请把SleepSecond调大,建议调回默认值:4
+    if ResponseFormatted.get('rgv587_flag') == "sm":
+        # 若显示这个,请把SleepSecond调大,建议调回默认值
         print("Failed: DoS Protection.")
-    if ResponseFormatted['success'] == 0:
+    if ResponseFormatted.get('success') == 0:
         print("Failed: General Fail:", ResponseFormatted['desc'])
-    if ResponseFormatted['data'] == 0:
+    if ResponseFormatted.get('data') == 0:
         print("Failed: Video Not Found.")
     if Response.status_code == 200:
         print("Success.")

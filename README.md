@@ -1,3 +1,6 @@
 # skvddt
 
-> pip install requests
+`pip install requests`
+
+or
+> https://www.lanzous.com/iayus4b

@@ -8,21 +8,17 @@ from time import sleep
 # 懒人模式,把json粘贴过来,自动解析视频ID,True是开,False是关,支持多个视频
 LazyMode = True
 VideoInfos = [
-    {"source": 3, "studyType": 2, "resourceId": "103592832", "packageId": "102318342", "courseId": "102579256",
+    {"source": 3, "studyType": 2, "resourceId": "103692055", "packageId": "102453309", "courseId": "102482170",
      "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103325538", "packageId": "102318342", "courseId": "102893143",
+    {"source": 3, "studyType": 2, "resourceId": "103207978", "packageId": "102270333", "courseId": "102788191",
      "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103079865", "packageId": "102318342", "courseId": "102019165",
+    {"source": 3, "studyType": 2, "resourceId": "103728082", "packageId": "102453307", "courseId": "102925258",
      "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103476086", "packageId": "102973230", "courseId": "101921005",
+    {"source": 3, "studyType": 2, "resourceId": "103271009", "packageId": "102453307", "courseId": "102286242",
      "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103922022", "packageId": "102973230", "courseId": "102051033",
+    {"source": 3, "studyType": 2, "resourceId": "102842008", "packageId": "102609325", "courseId": "102957231",
      "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103392161", "packageId": "102973230", "courseId": "102345080",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103476087", "packageId": "102973230", "courseId": "101921006",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "102406149", "packageId": "102973230", "courseId": "102486938",
+    {"source": 3, "studyType": 2, "resourceId": "103271006", "packageId": "102609325", "courseId": "102286239",
      "courseTime": 0, "learnTime": 0, "type": 1}
 ]
 # Time是次数,因为我这个代码每次刷增加1分钟,请根据视频长度做调整,因为视频大部分25分钟,所以默认值:25
@@ -44,11 +40,11 @@ else:
 courseTime = 700
 learnTime = 600
 # 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
-dd_sid = 'k0_82bd0baf3444875e7a64_0baf82bd5e8744346478fce83aee8ad8066a5fb8b580'
-isg = 'BKioa4nDYszaEk6npfEGWuGreZa60Qzb7AFhTWLbIyMWvU8nCuB8aTIzsVdNjcSz'
+dd_sid = '0b012f6f5e8b4ba52b1b0551fecbc4c96b111ded6675'
+isg = 'BJWVHCJWZ1_IX0NAMNJjdewYpJFPkkmkEXKs6hc8_4zrbqlg3-P1ddroPHBY7mFc'
 # 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
-ulcookie = '3283e9c00a8a93ddb868591fb5640c4f'
-sign = '419ce33a6dcd56fbed709d1cf7894c24'
+ulcookie = '246e84f67592134e799bbbe8b6fb1318'
+sign = '3aba6b743605ef0dacd8d9a76f4450c6'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'

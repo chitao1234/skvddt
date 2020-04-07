@@ -75,7 +75,7 @@ def foo():
         print(response.text)
         print("调试信息结束.")
         print()
-        print("次数:", i + 1, "共", Times + 1)
+        print("次数:", i + 1, "共", Times)
         response_formatted = eval(
             response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
         if response_formatted.get('rgv587_flag') == "sm":

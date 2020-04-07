@@ -1,0 +1,10 @@
+VideoInfosGithub = {
+	'2020-4-7': [
+		{"source": 3, "studyType": 2, "resourceId": "103692055", "packageId": "102453309", "courseId": "102482170", "courseTime": 0, "learnTime": 0, "type": 1},
+		{"source": 3, "studyType": 2, "resourceId": "103207978", "packageId": "102270333", "courseId": "102788191", "courseTime": 0, "learnTime": 0, "type": 1},
+		{"source": 3, "studyType": 2, "resourceId": "103728082", "packageId": "102453307", "courseId": "102925258", "courseTime": 0, "learnTime": 0, "type": 1},
+		{"source": 3, "studyType": 2, "resourceId": "103271009", "packageId": "102453307", "courseId": "102286242", "courseTime": 0, "learnTime": 0, "type": 1},
+		{"source": 3, "studyType": 2, "resourceId": "102842008", "packageId": "102609325", "courseId": "102957231", "courseTime": 0, "learnTime": 0, "type": 1},
+		{"source": 3, "studyType": 2, "resourceId": "103271006", "packageId": "102609325", "courseId": "102286239", "courseTime": 0, "learnTime": 0, "type": 1}
+	]
+}

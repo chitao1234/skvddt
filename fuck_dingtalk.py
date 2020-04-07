@@ -1,28 +1,34 @@
-# VER 2.1
+# VER 3.0
 import requests
 import json
-from time import sleep
+import time
 
 
 # 用户更改区域开始
-# 懒人模式,把json粘贴过来,自动解析视频ID,True是开,False是关,支持多个视频
+# 懒狗模式,自动从GitHub上读取视频ID,True是开,False是关,若开启则会强制关闭懒人模式,建议开启,除非我忘记更新了
+LazyDogMode = True
+# 表示是否刷今天的视频,True为 是,False为 否,若为 否,则必须在下面指定时间
+UseTodayVideo = True
+# 若上面为 否,则必须在此处指定时间
+if not UseTodayVideo:
+    VideoDate = {
+        "year": 2020,
+        "month": 1,
+        "day": 1,
+    }
+else:
+    # 这里别动
+    VideoDate = {
+        "year": time.localtime().tm_year,
+        "month": time.localtime().tm_mon,
+        "day": time.localtime().tm_mday,
+    }
+# 懒人模式,只有在懒狗模式关闭时才会发挥作用,把json粘贴过来,自动解析视频ID,True是开,False是关,支持多个视频
 LazyMode = True
-VideoInfos = [
-    {"source": 3, "studyType": 2, "resourceId": "103592832", "packageId": "102318342", "courseId": "102579256",
+LazyVideoInfos = [
+    {"source": 3, "studyType": 2, "resourceId": "103728082", "packageId": "102453307", "courseId": "102925258",
      "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103325538", "packageId": "102318342", "courseId": "102893143",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103079865", "packageId": "102318342", "courseId": "102019165",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103476086", "packageId": "102973230", "courseId": "101921005",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103922022", "packageId": "102973230", "courseId": "102051033",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103392161", "packageId": "102973230", "courseId": "102345080",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "103476087", "packageId": "102973230", "courseId": "101921006",
-     "courseTime": 0, "learnTime": 0, "type": 1},
-    {"source": 3, "studyType": 2, "resourceId": "102406149", "packageId": "102973230", "courseId": "102486938",
+    {"source": 3, "studyType": 2, "resourceId": "103271009", "packageId": "102453307", "courseId": "102286242",
      "courseTime": 0, "learnTime": 0, "type": 1}
 ]
 # Time是次数,因为我这个代码每次刷增加1分钟,请根据视频长度做调整,因为视频大部分25分钟,所以默认值:25
@@ -37,6 +43,7 @@ if not LazyMode:
     packageId = str(102649199)
     resourceId = str(103582425)
 else:
+    # 这三个别动
     resourceId = ''
     packageId = ''
     courseId = ''
@@ -44,15 +51,15 @@ else:
 courseTime = 700
 learnTime = 600
 # 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
-dd_sid = 'k0_872c0b15bf41875e2c72_0b15872c5e8741bf3e4e3508b59ada3cfb46c663683a'
-isg = 'BPHx4BiMCwc-wKf89I7_IWCsAH2L3mVQDWaIdtMHJLjX-hRMGy8CIo7cGIycMv2I'
+dd_sid = '0b012f6f5e8b4ba52b1b0551fecbc4c96b111ded6675'
+isg = 'BJWVHCJWZ1_IX0NAMNJjdewYpJFPkkmkEXKs6hc8_4zrbqlg3-P1ddroPHBY7mFc'
 # 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
-ulcookie = '3283e9c00a8a93ddb868591fb5640c4f'
-sign = '419ce33a6dcd56fbed709d1cf7894c24'
+ulcookie = '246e84f67592134e799bbbe8b6fb1318'
+sign = '3aba6b743605ef0dacd8d9a76f4450c6'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
-dt_s = 'u-1c4b69-713b146399-b5f548f-8c59a6-3a8356d9-10a8d683-9287-4681-b3d3-188e429b277b'
+dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'
-XSRF_TOKEN = '4a918264-173f-4049-baf7-1f5c2a58504b'
+XSRF_TOKEN = '4433e438-3a80-44ca-a6cd-df3b52c41c5d'
 # 用户更改区域结束
 
 
@@ -63,32 +70,32 @@ def foo():
     for i in range(Times):
         flag_fail = False
         response = requests.post(url=Url, data=json.dumps(Data), headers=Headers)
-        # Debug info start.到Debug info stop.输出的是调试数据,可忽略
         print()
-        print("Debug info start.")
+        print("调试信息开始.")
         print(response.text)
-        print("Debug info stop.")
+        print("调试信息结束.")
         print()
-        print("Time:", i + 1)
+        print("次数:", i + 1, "共", Times + 1)
         response_formatted = eval(
             response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
         if response_formatted.get('rgv587_flag') == "sm":
             # 若显示这个,请把SleepSecond调大,建议调回默认值
             # 同时在多设备运行也有可能出现此问题
-            print("Failed: DoS Protection.")
+            print("失败: Dos 保护.")
             flag_fail = True
         if response_formatted.get('success') == 0:
-            print("Failed: General Fail:", response_formatted['desc'])
+            print("失败: 一般失败:", response_formatted['desc'])
             flag_fail = True
         if response_formatted.get('data') == 0:
-            print("Failed: Video Not Found.")
+            print("失败: 视频未找到.")
             flag_fail = True
-        if response.status_code == 200 and not flag_fail:
-            print("Success.")
+        if response.status_code == 200:
+            if not flag_fail:
+                print("成功.")
         else:
-            print("Failed:", response.status_code)
+            print("失败:", response.status_code)
             exit(-1)
-        sleep(SleepSecond)
+        time.sleep(SleepSecond)
 # 别动这里
 # 别动这里
 # 主要逻辑结束
@@ -96,7 +103,8 @@ def foo():
 
 # 逻辑开始
 # 这里也别动
-# 标头,Cookie处理及懒人模式的特别处理
+# 标头,Cookie处理
+VideoInfosUrl = 'https://gitee.com/chitaotao/dkskvd/raw/master/VideoInfosGithub.txt'
 Url = "https://saas.daxue.dingtalk.com/dingtalk/course/record.jhtml"
 
 Cookies = {
@@ -134,8 +142,26 @@ Headers = {
     'Cookie': CookiesFormatted
 }
 
-if LazyMode:
-    # 开了懒人模式
+# 懒人模式/懒狗模式的特别处理,及调用主逻辑
+if LazyDogMode:
+    VideoInfosResponse = requests.get(VideoInfosUrl).text.replace('\r', '').replace('\n', '').replace('\t', '')
+    VideoInfosGit = ''
+    # 会创建变量VideoInfosGit
+    exec(VideoInfosResponse)
+    print(repr(VideoInfosResponse))
+    if not VideoInfosGit:
+        VideoInfosGit = {}
+        print("懒狗模式: 错误: 网络错误: 获取视频信息失败.")
+        exit(-1)
+    Date = str(VideoDate["year"]) + '-' + str(VideoDate["month"]) + '-' + str(VideoDate["day"])
+    VideoInfos = VideoInfosGit[Date]
+    print("懒狗模式: 调试信息开始.")
+    print(VideoInfos)
+    print("懒狗模式: 调试信息结束.")
+elif LazyMode:
+    VideoInfos = LazyVideoInfos
+if LazyMode or LazyDogMode:
+    # 开了懒人模式/懒狗模式
     j = 0
     for VideoInfo in VideoInfos:
         resourceId = VideoInfo['resourceId']
@@ -157,7 +183,7 @@ if LazyMode:
         print()
         j = j + 1
 else:
-    # 没开懒人模式
+    # 没开懒人模式/懒狗模式
     Data = {
         "source": 3,
         "studyType": 2,
@@ -169,6 +195,6 @@ else:
         "type": 2
     }
     foo()
-print('Done.')
+print('全部完成.')
 # 这里也别动
 # 逻辑结束

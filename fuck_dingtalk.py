@@ -1,4 +1,4 @@
-# VER 3.0
+# VER 3.1
 import requests
 import json
 import time
@@ -33,7 +33,7 @@ LazyVideoInfos = [
 ]
 # Time是次数,因为我这个代码每次刷增加1分钟,请根据视频长度做调整,因为视频大部分25分钟,所以默认值:25
 # 可刷时间,每次+1分钟,20次+20分钟
-Times = 25
+Times = 0
 # 这个是你在两次刷时间操作之间,停顿的秒数,建议不动,不然可能会被临时停止访问钉钉,默认值:5
 SleepSecond = 5
 # 下面三个在你换视频的时候要改,str()不要删,不要多加引号
@@ -52,7 +52,7 @@ courseTime = 700
 learnTime = 600
 # 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
 dd_sid = 'k0_ff360b0182258d5e6854_0b01ff365e8d258217510b9a99070c3de41ec9fe3549'
-isg = 'BMnIDGDb8_WyMo9kbNYXKXhk2PUjFr1IJT5gzms5MLAtsvLEs2dBGqMk8BQE6lWA'
+isg = 'BCMjNUDgeYd3azVW8ojNe87CsmfNGLda85h6nFWCnQLalFK23esQqFoKimaaNA9S'
 # 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
 ulcookie = 'da5e9e40e113ed131923718168aeb5f9'
 sign = '04c0708841882c73dbc6ddfd5a6cd32e'
@@ -75,7 +75,8 @@ def foo():
         print(response.text)
         print("调试信息结束.")
         print()
-        print("次数:", i + 1, "共", Times)
+        print("次数:", i + 1, "共", len(VideoInfos))
+        print("个数:", j + 1, "共", Times)
         response_formatted = eval(
             response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
         if response_formatted.get('rgv587_flag') == "sm":
@@ -180,7 +181,7 @@ if LazyMode or LazyDogMode:
         }
         print("正在处理:", VideoInfo, j + 1, "共", len(VideoInfos))
         foo()
-        print("已处理:", VideoInfo, j + 2, "共", len(VideoInfos))
+        print("已处理:", VideoInfo, j + 1, "共", len(VideoInfos))
         print()
         j = j + 1
 else:

@@ -1,4 +1,4 @@
-# VER 3.0
+# VER 3.1
 import requests
 import json
 import time
@@ -76,6 +76,7 @@ def foo():
         print("调试信息结束.")
         print()
         print("次数:", i + 1, "共", Times)
+        print("次数:", i + 1, "共", len(VideoInfos))
         response_formatted = eval(
             response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
         global SleepSecond
@@ -181,7 +182,7 @@ if LazyMode or LazyDogMode:
         }
         print("正在处理:", VideoInfo, j + 1, "共", len(VideoInfos))
         foo()
-        print("已处理:", VideoInfo, j + 2, "共", len(VideoInfos))
+        print("已处理:", VideoInfo, j + 1, "共", len(VideoInfos))
         print()
         j = j + 1
 else:

@@ -78,12 +78,11 @@ def foo():
         print("次数:", i + 1, "共", Times)
         response_formatted = eval(
             response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
+        global SleepSecond
         if response_formatted.get('rgv587_flag') == "sm":
-            global SleepSecond
             SleepSecond += 1
             print("警告: DoS 保护.")
         elif SleepSecond == 8:
-            global SleepSecond
             SleepSecond = 5
         if response_formatted.get('success') == 0:
             print("失败: 一般失败:", response_formatted['desc'])

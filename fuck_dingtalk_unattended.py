@@ -82,7 +82,7 @@ def foo():
         if response_formatted.get('rgv587_flag') == "sm":
             SleepSecond += 1
             print("警告: DoS 保护.")
-        elif SleepSecond == 8:
+        elif SleepSecond == 12:
             SleepSecond = 5
         if response_formatted.get('success') == 0:
             print("失败: 一般失败:", response_formatted['desc'])

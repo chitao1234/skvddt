@@ -51,11 +51,11 @@ else:
 courseTime = 700
 learnTime = 600
 # 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
-dd_sid = '0b012f6f5e8b4ba52b1b0551fecbc4c96b111ded6675'
-isg = 'BJWVHCJWZ1_IX0NAMNJjdewYpJFPkkmkEXKs6hc8_4zrbqlg3-P1ddroPHBY7mFc'
+dd_sid = 'k0_ff360b0182258d5e6854_0b01ff365e8d258217510b9a99070c3de41ec9fe3549'
+isg = 'BMnIDGDb8_WyMo9kbNYXKXhk2PUjFr1IJT5gzms5MLAtsvLEs2dBGqMk8BQE6lWA'
 # 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
-ulcookie = '246e84f67592134e799bbbe8b6fb1318'
-sign = '3aba6b743605ef0dacd8d9a76f4450c6'
+ulcookie = 'da5e9e40e113ed131923718168aeb5f9'
+sign = '04c0708841882c73dbc6ddfd5a6cd32e'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'
@@ -92,6 +92,8 @@ def foo():
         if response.status_code == 200:
             if not flag_fail:
                 print("成功.")
+            else:
+                exit(-1)
         else:
             print("失败:", response.status_code)
             exit(-1)
@@ -148,7 +150,6 @@ if LazyDogMode:
     VideoInfosGit = ''
     # 会创建变量VideoInfosGit
     exec(VideoInfosResponse)
-    print(repr(VideoInfosResponse))
     if not VideoInfosGit:
         VideoInfosGit = {}
         print("懒狗模式: 错误: 网络错误: 获取视频信息失败.")
@@ -177,9 +178,9 @@ if LazyMode or LazyDogMode:
             "learnTime": learnTime,
             "type": 2
         }
-        print("Now Processing:", VideoInfo, j + 1, "in", len(VideoInfos))
+        print("正在处理:", VideoInfo, j + 1, "共", len(VideoInfos))
         foo()
-        print("Processed", VideoInfo, j + 2, "in", len(VideoInfos))
+        print("已处理:", VideoInfo, j + 2, "共", len(VideoInfos))
         print()
         j = j + 1
 else:

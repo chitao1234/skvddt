@@ -51,11 +51,11 @@ else:
 courseTime = 700
 learnTime = 600
 # 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
-dd_sid = 'k0_ff360b0182258d5e6854_0b01ff365e8d258217510b9a99070c3de41ec9fe3549'
-isg = 'BMnIDGDb8_WyMo9kbNYXKXhk2PUjFr1IJT5gzms5MLAtsvLEs2dBGqMk8BQE6lWA'
+dd_sid = 'k0_6f280b17b18e8e5e1ff6_0b176f285e8e8eb1699698707e064b24b2ed63d72f0f'
+isg = 'BBUVXHKQ59qNrMPAsFLj9WyYJBHPEskkXXnNDZe6RgzJ7jfgX2NJ9iJovPDYbuHc'
 # 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
-ulcookie = 'da5e9e40e113ed131923718168aeb5f9'
-sign = '04c0708841882c73dbc6ddfd5a6cd32e'
+ulcookie = '55edc0eb6c478246863ffb1365e7e109'
+sign = 'e3b922eaf021cab2cd3f5f5df4a4109e'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'

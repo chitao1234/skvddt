@@ -155,8 +155,8 @@ def fooWrapper():
     print("进程数:", len(ulcookiesMadDog))
     for i in range(len(ulcookiesMadDog) - 1):
         threading.Thread(target=foo, args=(i,)).start()
-        # 把进程平均分配到5秒内,4.5为了减去开始进程消耗的时间
-        time.sleep(4.5 / len(ulcookiesMadDog))
+        # 把进程平均分配到5秒内,4.9为了减去开始进程消耗的时间
+        time.sleep(4.9 / len(ulcookiesMadDog))
     tmp_thread = threading.Thread(target=foo, args=(len(ulcookiesMadDog) - 1,))
     tmp_thread.start()
     tmp_thread.join()

@@ -29,7 +29,38 @@ ulcookiesMadDog = [
     '739553bba2fa559cc8ed48476aaae446',
     '520afe050f057071e82c1db311252471',
     '344dc118256610575adc1f18ba0c25ae',
-    '39c8aefd6863d353fa12ca917e5d34c5'
+    '39c8aefd6863d353fa12ca917e5d34c5',
+    'e1079c8469ab3072e1e2e76b36ebdf72',
+    '36df723464aac9fdede65cbdc2fc96ef',
+    '93df39a9d48b1fed8b40bfdf0c0a9830',
+    'f8d84c78e54a04770709fcd2eabdb067',
+    '9ab22c70f22618653d79f96fa420c7fa',
+    'ecf42669482e1041fb1e9cd084ebfd08',
+    'da87c355b4a8d84f3c8143126e505b51',
+    '223d99bb04437dab440c72b5c345cfd3',
+    '0eb8b6424e02e624f1cfea9a5e5963bb',
+    '2e1b05bf0e8adb4047cbdca14c682239',
+    '224982ca9031a833aed6a0e47bec4a97',
+    '5ca3e0af7afb55e9fbb4ae40a9707e22',
+    'be7a255f4f37a06d2751420072cf33a7',
+    'be7a255f4f37a06d2751420072cf33a7',
+    'a60269dc52c3e88e3730ae0d30f5a3cc',
+    'e622d5d727ab267fd1c7731fe74f8824',
+    'd47cfa23440c2c6f8da44822bd4bece1',
+    '8510dc9926fd83d40c7903d1e33dcdfe',
+    '8c42f58e754e8ca53606d69f42c857a0',
+    '72793d92dafef81dc9a48ee19cc770a6',
+    '1d1855be26860f1008bb48561545fe3a',
+    '506fadc376b52d1a3cb66d419e1f6648',
+    '35c04c959a10b08160f7c58daa7edf95',
+    '4a76caa155d191d8a206a8926834cfd9',
+    '3dc5ad996b02ded435c93f4d2000ee13',
+    '4c310aaafb36b8992af840c679120566',
+    '45763eb10702514debbfbe44596f1985',
+    'fb1260079210b1bc79dbb4b379258601',
+    '93dd1e0368a981d43ed66d486113bc5e',
+    '14eacc1c30241d235193f78b9f98850a',
+    'ebd90c588d11ae3d9c9dd6288c925b12'
 
 ]
 # 懒狗模式,自动从GitHub上读取视频ID,True是开,False是关,若开启则会强制关闭懒人模式,建议开启,除非我忘记更新了
@@ -121,6 +152,8 @@ def fooWrapper():
     print("进程数:", len(ulcookiesMadDog))
     for i in range(len(ulcookiesMadDog) - 1):
         threading.Thread(target=foo, args=(i,)).start()
+        # 把进程平均分配到5秒内,4.5为了减去开始进程消耗的时间
+        time.sleep(4.5 / len(ulcookiesMadDog))
     tmp_thread = threading.Thread(target=foo, args=(len(ulcookiesMadDog) - 1,))
     tmp_thread.start()
     tmp_thread.join()

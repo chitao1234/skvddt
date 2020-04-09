@@ -71,6 +71,8 @@ def foo(order=0):
         print()
         print("进程", order, "次数:", i + 1, "共", Times)
         print("进程", order, "个数:", j + 1, "共", len(VideoInfos))
+        print("次数:", i + 1, "共", Times)
+        print("个数:", j + 1, "共", len(VideoInfos))
         response_formatted = eval(
             response.text.replace('\n', '').replace('\t', '').replace('true', 'True').replace('false', 'False'))
         global SleepSecond

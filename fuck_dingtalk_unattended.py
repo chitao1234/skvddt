@@ -145,7 +145,10 @@ def foo(order=0):
         else:
             print("进程", order, "失败:", response.status_code)
             exit(-1)
-        time.sleep(SleepSecond)
+        try:
+            time.sleep(SleepSecond)
+        except KeyboardInterrupt:
+            EXIT = True
 
 
 def fooWrapper():

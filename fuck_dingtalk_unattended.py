@@ -12,7 +12,11 @@ ulcookiesMadDog = [
     '55edc0eb6c478246863ffb1365e7e109',
     '56a7657fe05081e1c87b9ffd857d988f',
     '5a7e2e03f359bc503d585ba33e17f592',
-    '7f7d4c97b49eb54019824778e70d8e05'
+    '7f7d4c97b49eb54019824778e70d8e05',
+    '4ed648dcb1e35038e32498f4b0d19c6d',
+    'f2ee3e84bcb8ac67127f4ce9d75310d1',
+    'd5076f6bc98212322ca6ec16ab5c95d2',
+    'c8e7a836258c2ff5d15bfbe9a589935c'
 ]
 # 懒狗模式,自动从GitHub上读取视频ID,True是开,False是关,若开启则会强制关闭懒人模式,建议开启,除非我忘记更新了
 LazyDogMode = True

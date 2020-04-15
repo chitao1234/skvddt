@@ -31,6 +31,11 @@ LazyVideoInfos = [
     {"source": 3, "studyType": 2, "resourceId": "103271009", "packageId": "102453307", "courseId": "102286242",
      "courseTime": 0, "learnTime": 0, "type": 1}
 ]
+# 禁用代理
+Proxies = {
+  "http": None,
+  "https": None,
+}
 # Time是次数,因为我这个代码每次刷增加1分钟,请根据视频长度做调整,因为视频大部分25分钟,所以默认值:25
 # 可刷时间,每次+1分钟,20次+20分钟
 Times = 25
@@ -54,7 +59,7 @@ learnTime = 600
 dd_sid = 'k0_6f280b17b18e8e5e1ff6_0b176f285e8e8eb1699698707e064b24b2ed63d72f0f'
 isg = 'BBUVXHKQ59qNrMPAsFLj9WyYJBHPEskkXXnNDZe6RgzJ7jfgX2NJ9iJovPDYbuHc'
 # 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
-ulcookie = '326ecd7013c0f1f91738c2138e43cda1'
+ulcookie = '88d9902894cd8f0ed1c1ac002bf80697'
 sign = 'e3b922eaf021cab2cd3f5f5df4a4109e'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
@@ -69,7 +74,7 @@ XSRF_TOKEN = '4433e438-3a80-44ca-a6cd-df3b52c41c5d'
 def foo():
     for i in range(Times):
         flag_fail = False
-        response = requests.post(url=Url, data=json.dumps(Data), headers=Headers)
+        response = requests.post(url=Url, data=json.dumps(Data), headers=Headers, proxies=Proxies)
         print()
         print("调试信息开始.")
         print(response.text)
@@ -147,7 +152,7 @@ Headers = {
 
 # 懒人模式/懒狗模式的特别处理,及调用主逻辑
 if LazyDogMode:
-    VideoInfosResponse = requests.get(VideoInfosUrl).text.replace('\r', '').replace('\n', '').replace('\t', '')
+    VideoInfosResponse = requests.get(VideoInfosUrl, proxies=Proxies).text.replace('\r', '').replace('\n', '').replace('\t', '')
     VideoInfosGit = ''
     # 会创建变量VideoInfosGit
     exec(VideoInfosResponse)

@@ -55,11 +55,11 @@ else:
 # 这两个暂时别动,是每次刷的时间相关的,还没搞清楚
 courseTime = 700
 learnTime = 600
-# 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
+# 这个代表你是谁,可能每天要更新一次,出现未登录问题优先排查这个
+ulcookie = 'aecf732c70bc2e8e43d62b382128bdc3'
+# 这三个也代表你是谁,第一次使用要修改,然后等出错再修改吧,不要把引号删了,出现未登录问题其次排查这两个
 dd_sid = 'k0_6f280b17b18e8e5e1ff6_0b176f285e8e8eb1699698707e064b24b2ed63d72f0f'
 isg = 'BBUVXHKQ59qNrMPAsFLj9WyYJBHPEskkXXnNDZe6RgzJ7jfgX2NJ9iJovPDYbuHc'
-# 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个
-ulcookie = '88d9902894cd8f0ed1c1ac002bf80697'
 sign = 'e3b922eaf021cab2cd3f5f5df4a4109e'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'

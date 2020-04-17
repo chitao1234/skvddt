@@ -7,6 +7,7 @@ import threading
 
 # 用户更改区域开始
 # 疯狗模式,快速刷时间
+# 这个代表你是谁,可能每天要更新一次,出现未登录问题优先排查这个
 # 指定ulcookie,同时线程个数等于ulcookie个数,必须至少有一个
 ulcookiesMadDog = [
     '11f33e6ed8f2f230b5cabca5ecd09704',
@@ -192,11 +193,10 @@ SleepSecond = 5
 # 这两个暂时别动,是每次刷的时间相关的,还没搞清楚
 courseTime = 700
 learnTime = 600
-# 这两个代表你是谁,在每天第一次必须要改,后面都不用改,不要把引号删了,出现未登录问题优先排查这两个
-dd_sid = 'k0_01b90b5a37d1925e15d3_0b5a01b95e92d1371b62aabd08e07759b4a382b0105d'
-isg = 'BAMDZwSaWfgQBhX2kijt2-4ikseteJe6H7O7mzXgB2LZ9CIWvUmCCxiiaoa61O-y'
-# 这两个可能每两三天要更新一次,出现未登录问题其次排查这两个,ulcookie请在上面指定
-sign = '7c2c0770a826740882803e8e7250c430'
+# 这三个也代表你是谁,第一次使用要修改,然后等出错再修改吧,不要把引号删了,出现未登录问题其次排查这两个
+dd_sid = 'k0_6f280b17b18e8e5e1ff6_0b176f285e8e8eb1699698707e064b24b2ed63d72f0f'
+isg = 'BBUVXHKQ59qNrMPAsFLj9WyYJBHPEskkXXnNDZe6RgzJ7jfgX2NJ9iJovPDYbuHc'
+sign = 'e3b922eaf021cab2cd3f5f5df4a4109e'
 # 这三个也代表你是谁,只有第一次使用要修改,不要把引号删了
 dt_s = 'u-1c4b69-7140459ff7-b5f54ae-6f59b5-792eaa9e-eb00daa9-b8b3-4885-a814-61d92387a4fb'
 cna = 'LRLRFtSKfSICAXAxrxj3zKsn'
